@@ -1,0 +1,58 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Index","Entity", FormMethod.Get))
+{
+    <input type="text" name ="searchCriteria" id =  "searchCriteria" />
+    <input type="submit" title="search" alt="Search" value="Search" />
+    <legend>My Data Set: </legend>
+    @if (Model.Buildings.Count > 0)
+    {
+        <legend>Building count:  @Model.Buildings.Count</legend>
+
+
+        <table class="table" border="1" cellpadding="2" cellspacing="4">
+            <tr>
+                <th>Building Name</th>
+                <th>ShortCut</th>
+                <th>Description</th>
+
+            </tr>
+            @foreach (var building in Model.Buildings)
+            {
+                <tr>
+                    <td>@building.Name</td>
+                    <td>@building.ShortCut</td>
+                    <td>@building.Description</td>
+
+                </tr>
+            }
+        </table>
+    }
+    @if (Model.Locks.Count > 0)
+    {
+        <legend>Locks count:  @Model.Locks.Count</legend>
+
+        <table border="1" cellpadding="2" cellspacing="4">
+            <tr>
+                <th>Building Name</th>
+                <th>ShortCut</th>
+                <th>Description</th>
+
+            </tr>
+            @foreach (var lck in Model.Locks)
+            {
+                <tr>
+                    <td>@lck.Name</td>
+                    <td>@lck.Name</td>
+                    <td>@lck.Description</td>
+
+                </tr>
+            }
+        </table>
+    }
+}

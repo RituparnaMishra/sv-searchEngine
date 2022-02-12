@@ -1,8 +1,11 @@
+using Microsoft.Extensions.FileProviders;
+using sv_searchEngine.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
+builder.Services.AddSingleton<IDataService, DataService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -15,6 +18,13 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+// This will add "Styles" as another valid static content location
+app.UseStaticFiles(new StaticFileOptions()
+{
+    FileProvider = new PhysicalFileProvider(
+         Path.Combine(Directory.GetCurrentDirectory(), @"Styles")),
+    RequestPath = new PathString("/Styles")
+});
 
 app.UseRouting();
 
