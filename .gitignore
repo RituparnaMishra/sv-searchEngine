@@ -1,0 +1,8 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/sv-searchEngine/.vs/sv-searchEngine/v17
+/sv-searchEngine/sv-searchEngine/bin/Debug/net6.0
+/sv-searchEngine/sv-searchEngine/obj
