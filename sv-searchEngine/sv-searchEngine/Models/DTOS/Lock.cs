@@ -4,7 +4,9 @@ namespace sv_searchEngine.Models.DTOS
 {
     public class Lock
     {
-        public string Id { get; set; }
+        public Guid Id { get; set; }
+        [TransitivePropertyWeightAttribute(typeof(Building),"BuildingName", 8 )]
+        [TransitivePropertyWeightAttribute(typeof(Building), "BuidingShortCut", 5)]
         public Guid BuildingId { get; set; }
         [OwnPropertyWeightAttribute(3)]
         public string Type { get; set; }
@@ -19,6 +21,6 @@ namespace sv_searchEngine.Models.DTOS
         [OwnPropertyWeightAttribute(6)]
         public string RoomNumber { get; set; }
 
-        public int Weight { get; set; }
+        public Tuple<string, int> Weight { get; set; }
     }
 }

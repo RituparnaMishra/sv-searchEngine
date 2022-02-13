@@ -1,4 +1,5 @@
 ﻿using sv_searchEngine.Models.Attribute;
+using System;
 
 namespace sv_searchEngine.Models.DTOS
 {
@@ -11,6 +12,8 @@ namespace sv_searchEngine.Models.DTOS
         public string Name { get; set; } = null!;
         [OwnPropertyWeightAttribute(5)]
         public string Description { get; set; }
-        public int Weight { get; set; }
+        public Tuple<string,int> Weight { get; set; }
+
+        //public IEnumerable<Type> DependentObjects { get; set; } = new List<Type>() { typeof(Lock) };
     }
 }
