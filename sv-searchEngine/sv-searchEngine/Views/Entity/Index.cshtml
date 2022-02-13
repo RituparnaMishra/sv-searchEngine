@@ -1,0 +1,119 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Entity Page";
+}
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Index", "Entity", FormMethod.Get))
+{
+    <input type="text" name="searchCriteria" id="searchCriteria" />
+    <input type="submit" title="search" alt="Search" value="Search" />
+    @if (Model != null)
+    {
+        <legend>My Data Set: </legend>
+        @if (Model.Buildings.Count > 0)
+        {
+            <legend>Building count:  @Model.Buildings.Count</legend>
+
+
+            <table class="table" border="1" cellpadding="2" cellspacing="4">
+                <tr>
+                    <th>Building Name</th>
+                    <th>ShortCut</th>
+                    <th>Description</th>
+
+                </tr>
+                @foreach (var building in Model.Buildings)
+                {
+                    <tr>
+                        <td>@building.Name</td>
+                        <td>@building.ShortCut</td>
+                        <td>@building.Description</td>
+
+                    </tr>
+                }
+            </table>
+        }
+        @if (Model.Locks.Count > 0)
+        {
+            <legend>Locks count:  @Model.Locks.Count</legend>
+
+            <table border="1" cellpadding="2" cellspacing="4">
+                <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Serial Number</th>
+                    <th>Floor</th>
+                    <th>Room number</th>
+
+
+
+
+                </tr>
+                @foreach (var lck in Model.Locks)
+                {
+                    <tr>
+                        <td>@lck.Name</td>
+                        <td>@lck.Name</td>
+                        <td>@lck.Description</td>
+                        <td>@lck.SerialNumber</td>
+                        <td>@lck.Floor</td>
+                        <td>@lck.RoomNumber</td>
+
+
+                    </tr>
+                }
+            </table>
+        }
+
+
+        @if (Model.Groups.Count > 0)
+        {
+            <legend>Group count:  @Model.Groups.Count</legend>
+
+            <table border="1" cellpadding="2" cellspacing="4">
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                </tr>
+                @foreach (var group in Model.Groups)
+                {
+                    <tr>
+                        <td>@group.Name</td>
+                        <td>@group.Description</td>
+                    </tr>
+                }
+            </table>
+        }
+
+
+        @if (Model.Media.Count > 0)
+        {
+            <legend>Media count:  @Model.Media.Count</legend>
+
+            <table border="1" cellpadding="2" cellspacing="4">
+                <tr>
+                    <th>Type</th>
+                    <th>Owner</th>
+                    <th>Description</th>
+                    <th>Serial Number</th>
+                </tr>
+                @foreach (var media in Model.Media)
+                {
+                    <tr>
+                      <td>@media.Type</td>
+                      <td>@media.Owner</td>
+                      <td>@media.Description</td>
+                      <td>@media.SerialNumber</td>
+                    </tr>
+                }
+            </table>
+        }
+    }          
+}
