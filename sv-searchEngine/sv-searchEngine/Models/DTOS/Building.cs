@@ -1,10 +1,16 @@
-﻿namespace sv_searchEngine.Models.DTOS
+﻿using sv_searchEngine.Models.Attribute;
+
+namespace sv_searchEngine.Models.DTOS
 {
     public class Building
     {
-        public string Id { get; set; }
+        public Guid Id { get; set; }
+        [OwnPropertyWeightAttribute(7)]
         public string ShortCut { get; set; }
-        public string Name { get; set; }
+        [OwnPropertyWeightAttribute(9)]
+        public string Name { get; set; } = null!;
+        [OwnPropertyWeightAttribute(5)]
         public string Description { get; set; }
+        public int Weight { get; set; }
     }
 }

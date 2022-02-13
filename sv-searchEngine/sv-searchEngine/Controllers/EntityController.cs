@@ -12,7 +12,11 @@ namespace sv_searchEngine.Controllers
         }
         public async Task<ActionResult> Index(string searchCriteria)
         {
-            var data = await _dataService.GetDataWithSearchCriteria(searchCriteria);
+            var data = await _dataService.GetDataWithAdvancedSearchCriteria(searchCriteria);
+
+            //var data = SearchService.Search(searchCriteria);
+
+
             return View(data);
         }
     }
