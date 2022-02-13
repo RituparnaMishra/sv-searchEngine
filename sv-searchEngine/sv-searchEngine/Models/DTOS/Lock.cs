@@ -21,6 +21,6 @@ namespace sv_searchEngine.Models.DTOS
         [OwnPropertyWeightAttribute(6)]
         public string RoomNumber { get; set; }
 
-        public Tuple<string, int> Weight { get; set; }
+        public Weightage Weight { get; set; }
     }
 }

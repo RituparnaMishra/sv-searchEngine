@@ -8,7 +8,7 @@ namespace sv_searchEngine.Controllers
     {
         private readonly IDataService _dataService;
         private readonly ISearchService _searchService;
-        private EntityModel _allData = null;
+        private EntityModel? _allData = null;
         public EntityController(IDataService dataService, ISearchService searchService)
         {
             _dataService = dataService;
